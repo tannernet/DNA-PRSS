@@ -1,0 +1,835 @@
+/******************************************************************
+Site Name: DNAPRSS.com
+Author: Matt Chandler
+
+Stylesheet: IE Stylesheet
+
+So instead of using the respond.js file to add media query support
+to IE, we're going to use SASS to create an easily readable css file.
+Here, we import all the styles the standard stylesheet gets, only
+without the media queries. No need to worry about editing anything!
+
+******************************************************************/
+/*
+Remember, all the BASE styles are called already since IE can
+read those. Below, we need to import only the stuff IE can't 
+understand (what's inside the media queries). We also need to
+import the mixins file so SASS can understand the variables.
+*/
+/* import mixins */
+/******************************************************************
+Site Name: DNAPRSS.com
+Author: Matt Chandler
+
+Stylesheet: Mixins & Constants Stylesheet
+
+This is where you can take advantage of Sass' great features: 
+Mixins & Constants. I won't go in-depth on how they work exactly,
+there are a few articles below that will help do that. What I will
+tell you is that this will help speed up simple changes like
+changing a color or adding CSS3 techniques like box shadow and
+border-radius.
+
+A WORD OF WARNING: It's very easy to overdo it here. Be careful and
+remember less is more. 
+
+******************************************************************/
+/*********************
+CLEARFIXIN'
+*********************/
+/* Contain floats: nicolasgallagher.com/micro-clearfix-hack/ */
+/* line 24, ../scss/_mixins.scss */
+.clearfix {
+  zoom: 1;
+}
+/* line 26, ../scss/_mixins.scss */
+.clearfix:before, .clearfix:after {
+  content: "";
+  display: table;
+}
+/* line 30, ../scss/_mixins.scss */
+.clearfix:after {
+  clear: both;
+}
+
+/*********************
+TOOLS
+*********************/
+/* http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/ */
+/* line 41, ../scss/_mixins.scss */
+.image-replacement {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/*********************
+COLORS
+Need help w/ choosing your colors? Try this site out:
+http://0to255.com/
+*********************/
+/*********************
+TYPOGRAPHY
+*********************/
+/* 	To embed your own fonts, use this syntax
+	and place your fonts inside the 
+	library/fonts folder. For more information
+	on embedding fonts, go to:
+	http://www.fontsquirrel.com/
+	Be sure to remove the comment brackets.
+*/
+/*	@font-face {
+    	font-family: 'Font Name';
+    	src: url('library/fonts/font-name.eot');
+    	src: url('library/fonts/font-name.eot?#iefix') format('embedded-opentype'),
+             url('library/fonts/font-name.woff') format('woff'),
+             url('library/fonts/font-name.ttf') format('truetype'),
+             url('library/fonts/font-name.svg#font-name') format('svg');
+    	font-weight: normal;
+    	font-style: normal;
+	}
+*/
+/* 
+use the best ampersand 
+http://simplebits.com/notebook/2008/08/14/ampersands-2/
+*/
+/* line 99, ../scss/_mixins.scss */
+span.amp {
+  font-family: Baskerville,'Goudy Old Style',Palatino,'Book Antiqua',serif !important;
+  font-style: italic;
+}
+
+/* text alignment */
+/* line 105, ../scss/_mixins.scss */
+.text-left {
+  text-align: left;
+}
+
+/* line 106, ../scss/_mixins.scss */
+.text-center {
+  text-align: center;
+}
+
+/* line 107, ../scss/_mixins.scss */
+.text-right {
+  text-align: right;
+}
+
+/* alerts & notices */
+/* line 111, ../scss/_mixins.scss */
+.alert {
+  margin: 10px;
+  padding: 5px 18px;
+  border: 1px solid;
+}
+
+/* line 117, ../scss/_mixins.scss */
+.help {
+  border-color: #e8dc59;
+  background: #ebe16f;
+}
+
+/* line 122, ../scss/_mixins.scss */
+.info {
+  border-color: #bfe4f4;
+  background: #d5edf8;
+}
+
+/* line 127, ../scss/_mixins.scss */
+.error {
+  border-color: #f8cdce;
+  background: #fbe3e4;
+}
+
+/* line 132, ../scss/_mixins.scss */
+.success {
+  border-color: #deeaae;
+  background: #e6efc2;
+}
+
+/*********************
+BORDER RADIUS
+*********************/
+/* 
+NOTE: For older browser support (and some mobile), 
+don't use the shorthand to define *different* corners. 
+
+USAGE: @include rounded(5px); 
+
+*/
+/* 
+Instead of having a seperate mixin for the different
+borders, we're using the mixin from 320 & Up to make
+things easier to use.
+
+USAGE: @include border-radius(4px,4px,0,0);
+
+*/
+/*********************
+TRANISTION
+*********************/
+/* @include transition(all,2s,ease-out); */
+/*********************
+BOX SHADOWS
+*********************/
+/* @include box-shadow(5px, 5px, 10px, #000); */
+/*********************
+CSS3 GRADIENTS
+Be careful with these since they can 
+really slow down your CSS. Don't overdue it.
+*********************/
+/* @include css-gradient(#dfdfdf,#f8f8f8); */
+/*********************
+BOX SIZING
+*********************/
+/* @include box-sizing(border-box); */
+/* NOTE: value of "padding-box" is only supported in Gecko. So 
+probably best not to use it. I mean, were you going to anyway? */
+/*********************
+BUTTONS
+*********************/
+/* line 246, ../scss/_mixins.scss */
+.button, .button:visited {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border: 1px solid #be0d37;
+  border-top-color: #db0f3f;
+  border-left-color: #db0f3f;
+  padding: 4px 12px;
+  color: white;
+  display: inline-block;
+  font-size: 11px;
+  font-weight: bold;
+  text-decoration: none;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.75);
+  cursor: pointer;
+  margin-bottom: 20px;
+  line-height: 21px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  background-color: #e40f42;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f01d4f), to(#e40f42));
+  background-image: -webkit-linear-gradient(top, #f01d4f, #e40f42);
+  background-image: -moz-linear-gradient(top, #f01d4f, #e40f42);
+  background-image: -o-linear-gradient(top, #f01d4f, #e40f42);
+  background-image: linear-gradient(to bottom, #f01d4f, #e40f42);
+}
+/* line 265, ../scss/_mixins.scss */
+.button:hover, .button:focus, .button:visited:hover, .button:visited:focus {
+  color: white;
+  border: 1px solid #be0d37;
+  border-top-color: #9d0a2d;
+  border-left-color: #9d0a2d;
+  background-color: #cc0e3b;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#e40f42), to(#cc0e3b));
+  background-image: -webkit-linear-gradient(top, #e40f42, #cc0e3b);
+  background-image: -moz-linear-gradient(top, #e40f42, #cc0e3b);
+  background-image: -o-linear-gradient(top, #e40f42, #cc0e3b);
+  background-image: linear-gradient(to bottom, #e40f42, #cc0e3b);
+}
+/* line 273, ../scss/_mixins.scss */
+.button:active, .button:visited:active {
+  background-color: #f01d4f;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#e40f42), to(#f01d4f));
+  background-image: -webkit-linear-gradient(top, #e40f42, #f01d4f);
+  background-image: -moz-linear-gradient(top, #e40f42, #f01d4f);
+  background-image: -o-linear-gradient(top, #e40f42, #f01d4f);
+  background-image: linear-gradient(to bottom, #e40f42, #f01d4f);
+}
+
+/* line 278, ../scss/_mixins.scss */
+.blue-button, .blue-button:visited {
+  border-color: #1472ad;
+  text-shadow: 0 1px 1px #1472ad;
+  background-color: #1681c4;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#1990db), to(#1681c4));
+  background-image: -webkit-linear-gradient(top, #1990db, #1681c4);
+  background-image: -moz-linear-gradient(top, #1990db, #1681c4);
+  background-image: -o-linear-gradient(top, #1990db, #1681c4);
+  background-image: linear-gradient(to bottom, #1990db, #1681c4);
+  -webkit-box-shadow: inset 0 0 3px #59b3ec;
+  -moz-box-shadow: inset 0 0 3px #59b3ec;
+  box-shadow: inset 0 0 3px #59b3ec;
+}
+/* line 285, ../scss/_mixins.scss */
+.blue-button:hover, .blue-button:focus, .blue-button:visited:hover, .blue-button:visited:focus {
+  border-color: #116396;
+  background-color: #1472ad;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#1784c9), to(#1472ad));
+  background-image: -webkit-linear-gradient(top, #1784c9, #1472ad);
+  background-image: -moz-linear-gradient(top, #1784c9, #1472ad);
+  background-image: -o-linear-gradient(top, #1784c9, #1472ad);
+  background-image: linear-gradient(to bottom, #1784c9, #1472ad);
+}
+/* line 289, ../scss/_mixins.scss */
+.blue-button:active, .blue-button:visited:active {
+  background-color: #1990db;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#1681c4), to(#1990db));
+  background-image: -webkit-linear-gradient(top, #1681c4, #1990db);
+  background-image: -moz-linear-gradient(top, #1681c4, #1990db);
+  background-image: -o-linear-gradient(top, #1681c4, #1990db);
+  background-image: linear-gradient(to bottom, #1681c4, #1990db);
+}
+
+/******************************************************************
+Site Name: DNAPRSS.com
+Author: Matt Chandler
+
+Stylesheet: 481px and Up Stylesheet
+
+This stylesheet is loaded for larger devices. It's set to 
+481px because at 480px it would load on a landscaped iPhone.
+This isn't ideal because then you would be loading all those
+extra styles on that same mobile connection. 
+
+A word of warning. This size COULD be a larger mobile device,
+so you still want to keep it pretty light and simply expand
+upon your base.scss styles.
+
+******************************************************************/
+/*********************
+NAVIGATION STYLES
+*********************/
+/* .menu is clearfixed inside mixins.scss */
+/* line 27, ../scss/_481up.scss */
+.menu {
+  /* end .menu ul */
+}
+/* line 28, ../scss/_481up.scss */
+.menu ul {
+  /* end .menu ul li */
+  /* highlight current page */
+  /* end current highlighters */
+}
+/* line 29, ../scss/_481up.scss */
+.menu ul li {
+  /*
+  plan your menus and drop-downs wisely.
+  */
+}
+/* line 30, ../scss/_481up.scss */
+.menu ul li a {
+  /*
+  you can use hover styles here even though this size
+  has the possibility of being a mobile device.
+  */
+}
+
+/* end .menu */
+/*********************
+POSTS & CONTENT STYLES
+*********************/
+/* post content */
+/* line 76, ../scss/_481up.scss */
+.post-content {
+  /* at this larger size, we can start to align images */
+}
+/* line 80, ../scss/_481up.scss */
+.post-content .alignleft, .post-content img.alignleft {
+  margin-right: 1.5em;
+  display: inline;
+  float: left;
+}
+/* line 85, ../scss/_481up.scss */
+.post-content .alignright, .post-content img.alignright {
+  margin-left: 1.5em;
+  display: inline;
+  float: right;
+}
+/* line 90, ../scss/_481up.scss */
+.post-content .aligncenter, .post-content img.aligncenter {
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+  clear: both;
+}
+
+/* end .post-content */
+/*********************
+FOOTER STYLES
+*********************/
+/*
+check your menus here. do they look good?
+do they need tweaking?
+*/
+/* end .footer-links */
+/******************************************************************
+Site Name: DNAPRSS.com
+Author: Matt Chandler
+
+Stylesheet: Tablet & Small Desktop Stylesheet
+
+Here's where you can start getting into the good stuff.
+This size will work on iPads, other tablets, and desktops.
+So you can start working with more styles, background images,
+and other resources. You'll also notice the grid starts to
+come into play. Have fun!
+
+******************************************************************/
+/*********************
+GENERAL STYLES
+*********************/
+/* line 20, ../scss/_768up.scss */
+body {
+  background: #222222 url(../images/bg.jpg) no-repeat;
+}
+
+/********************
+WORDPRESS BODY CLASSES
+style a page via class
+********************/
+/* home page */
+/* blog page */
+/* archive page */
+/* date archive page */
+/* replace the number to the corresponding page number */
+/* search page */
+/* search result page */
+/* no results search page */
+/* individual paged search (i.e. body.search-paged-3) */
+/* 404 page */
+/* single post page */
+/* individual post page by id (i.e. body.postid-73) */
+/* individual paged single (i.e. body.single-paged-3) */
+/* attatchment page */
+/* individual attatchment page (i.e. body.attachmentid-763) */
+/* style mime type pages */
+/* author page */
+/* user nicename (i.e. body.author-samueladams) */
+/* paged author archives (i.e. body.author-paged-4) for page 4 */
+/* category page */
+/* individual category page (i.e. body.category-6) */
+/* replace the number to the corresponding page number */
+/* tag page */
+/* individual tag page (i.e. body.tag-news) */
+/* replace the number to the corresponding page number */
+/* custom page template page */
+/* individual page template (i.e. body.page-template-contact-php */
+/* replace the number to the corresponding page number */
+/* replace the number to the corresponding page number */
+/* if user is logged in */
+/* paged items like search results or archives */
+/* individual paged (i.e. body.paged-3) */
+/*********************
+LAYOUT & GRID STYLES
+*********************/
+/* line 69, ../scss/_768up.scss */
+.wrap {
+  max-width: 1140px;
+}
+
+/*
+	This is a combination of the 1140 grid and Twitter Boostrap.
+	I liked 1140 but Boostrap's grid was way more detailed so
+	I merged them together, let's see how this works out.
+	If you want to use 1140, the original values are commented
+	out on each line.
+*/
+/* line 79, ../scss/_768up.scss */
+.onecol {
+  width: 5.801104972%;
+}
+
+/* 4.85%;  } /* grid_1  */
+/* line 80, ../scss/_768up.scss */
+.twocol {
+  width: 14.364640883%;
+}
+
+/* 13.45%; } /* grid_2  */
+/* line 81, ../scss/_768up.scss */
+.threecol {
+  width: 22.928176794%;
+}
+
+/* 22.05%; } /* grid_3  */
+/* line 82, ../scss/_768up.scss */
+.fourcol {
+  width: 31.491712705%;
+}
+
+/* 30.75%; } /* grid_4  */
+/* line 83, ../scss/_768up.scss */
+.fivecol {
+  width: 40.055248616%;
+}
+
+/* 39.45%; } /* grid_5  */
+/* line 84, ../scss/_768up.scss */
+.sixcol {
+  width: 48.618784527%;
+}
+
+/* 48%;    } /* grid_6  */
+/* line 85, ../scss/_768up.scss */
+.sevencol {
+  width: 57.182320438000005%;
+}
+
+/* 56.75%; } /* grid_7  */
+/* line 86, ../scss/_768up.scss */
+.eightcol {
+  width: 65.74585634900001%;
+}
+
+/* 65.4%;  } /* grid_8  */
+/* line 87, ../scss/_768up.scss */
+.ninecol {
+  width: 74.30939226%;
+}
+
+/* 74.05%; } /* grid_9  */
+/* line 88, ../scss/_768up.scss */
+.tencol {
+  width: 82.87292817100001%;
+}
+
+/* 82.7%;  } /* grid_10 */
+/* line 89, ../scss/_768up.scss */
+.elevencol {
+  width: 91.436464082%;
+}
+
+/* 91.35%; } /* grid_11 */
+/* line 90, ../scss/_768up.scss */
+.twelvecol {
+  width: 99.999999993%;
+}
+
+/* 100%;   } /* grid_12 */
+/* layout & column defaults */
+/* line 93, ../scss/_768up.scss */
+.onecol, .twocol, .threecol, .fourcol, .fivecol, .sixcol, .sevencol, .eightcol, .ninecol, .tencol, .elevencol, .twelvecol {
+  position: relative;
+  float: left;
+  margin-left: 2.762430939%;
+}
+
+/* line 99, ../scss/_768up.scss */
+.first {
+  margin-left: 0;
+}
+
+/* line 103, ../scss/_768up.scss */
+.last {
+  float: right;
+}
+
+/*********************
+HEADER SYTLES
+*********************/
+/* line 113, ../scss/_768up.scss */
+#logo {
+  float: left;
+  margin: 20px 0;
+}
+
+/* line 119, ../scss/_768up.scss */
+#adBanner {
+  max-width: 100%;
+  border: 1px solid #fff;
+  max-height: 65px;
+  background-color: #222;
+  opacity: 0.6;
+  text-align: center;
+  padding: 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/* line 133, ../scss/_768up.scss */
+#description .h2 {
+  text-align: center;
+  font-family: Georgia, serif;
+}
+
+/*********************
+NAVIGATION STYLES
+*********************/
+/* line 145, ../scss/_768up.scss */
+#menu-pages {
+  float: right;
+  margin-top: 45px;
+  -webkit-box-shadow: 5px, 5px, 10px, black;
+  -moz-box-shadow: 5px, 5px, 10px, black;
+  box-shadow: 5px, 5px, 10px, black;
+}
+/* line 149, ../scss/_768up.scss */
+#menu-pages li {
+  float: left;
+  display: inline-block;
+  padding: 5px 10px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+}
+/* line 156, ../scss/_768up.scss */
+#menu-pages li:first-child {
+  border-right: 2px solid white;
+}
+/* line 160, ../scss/_768up.scss */
+#menu-pages li a {
+  text-decoration: none;
+}
+/* line 163, ../scss/_768up.scss */
+#menu-pages li a:hover, #menu-pages li a:focus {
+  color: #cccccc;
+}
+
+/* line 174, ../scss/_768up.scss */
+#menu-sports {
+  clear: both;
+}
+
+/* line 178, ../scss/_768up.scss */
+#menu-sports {
+  background: #404040;
+  border: 0;
+  /* end .menu ul li */
+  /* highlight current page */
+  /* end current highlighters */
+}
+/* line 182, ../scss/_768up.scss */
+#menu-sports li {
+  float: left;
+  min-width: 100px;
+  position: relative;
+  /*
+  plan your menus and drop-downs wisely.
+  */
+  /* showing sub-menus */
+}
+/* line 188, ../scss/_768up.scss */
+#menu-sports li a {
+  border-bottom: 0;
+  /*
+  you can use hover styles here even though this size
+  has the possibility of being a mobile device.
+  */
+}
+/* line 195, ../scss/_768up.scss */
+#menu-sports li a:hover, #menu-sports li a:focus {
+  background-color: #737373;
+}
+/* line 208, ../scss/_768up.scss */
+#menu-sports li ul.sub-menu,
+#menu-sports li ul.children {
+  min-width: 200px;
+  width: 400px;
+  display: none;
+  z-index: 8999;
+  margin-top: 0;
+  float: left;
+  position: absolute;
+  /* highlight sub-menu current page */
+}
+/* line 217, ../scss/_768up.scss */
+#menu-sports li ul.sub-menu li,
+#menu-sports li ul.children li {
+  float: left;
+  display: inline-block;
+  width: 180px;
+  /*
+  if you need to go deeper, go nuts
+  just remember deeper menus suck
+  for usability. k, bai.
+  */
+}
+/* line 222, ../scss/_768up.scss */
+#menu-sports li ul.sub-menu li a,
+#menu-sports li ul.children li a {
+  border-right: 0;
+  min-width: 180px;
+}
+/* line 236, ../scss/_768up.scss */
+#menu-sports li ul.sub-menu li:last-child a,
+#menu-sports li ul.children li:last-child a {
+  border-bottom: 0;
+}
+/* line 248, ../scss/_768up.scss */
+#menu-sports li ul.sub-menu li ul li,
+#menu-sports li ul.children li ul li {
+  display: inline-block;
+}
+/* line 252, ../scss/_768up.scss */
+#menu-sports li ul.sub-menu li ul li a,
+#menu-sports li ul.children li ul li a {
+  text-transform: none;
+  padding-left: 30px;
+}
+/* line 272, ../scss/_768up.scss */
+#menu-sports li:hover ul {
+  top: auto;
+  display: block;
+}
+
+/* end .nav */
+/*********************
+CONTENT AND POST STYLES
+*********************/
+/* line 292, ../scss/_768up.scss */
+#main {
+  margin-top: 2.2em;
+}
+
+/* line 298, ../scss/_768up.scss */
+.homebucket {
+  text-align: center;
+}
+/* line 300, ../scss/_768up.scss */
+.homebucket img {
+  margin: 0 auto;
+}
+
+/*********************
+SIDEBARS & ASIDES
+*********************/
+/* line 311, ../scss/_768up.scss */
+.sidebar {
+  margin-top: 2.2em;
+}
+
+/* line 315, ../scss/_768up.scss */
+.widgettitle {
+  border-bottom: 2px solid #444;
+  margin-bottom: 0.75em;
+}
+
+/* line 320, ../scss/_768up.scss */
+.widget {
+  padding: 0 10px;
+  margin: 2.2em 0;
+}
+/* line 325, ../scss/_768up.scss */
+.widget ul li {
+  margin-bottom: 0.75em;
+  /* deep nesting */
+}
+/* line 333, ../scss/_768up.scss */
+.widget ul li ul {
+  margin-top: 0.75em;
+  padding-left: 1em;
+}
+
+/* links widget */
+/* meta widget */
+/* pages widget */
+/* recent-posts widget */
+/* archives widget */
+/* tag-cloud widget */
+/* calendar widget */
+/* category widget */
+/* recent-comments widget */
+/* search widget */
+/* text widget */
+/*********************
+FOOTER STYLES
+*********************/
+/*
+you'll probably need to do quite a bit
+of overriding here if you styled them for
+mobile. Make sure to double check these!
+*/
+/* line 444, ../scss/_768up.scss */
+#footer {
+  background: #303030;
+  margin-top: 1em;
+}
+/* line 449, ../scss/_768up.scss */
+#footer #text-2 {
+  margin-left: 0;
+  padding-left: 0;
+}
+/* line 454, ../scss/_768up.scss */
+#footer #footerDivider {
+  background-color: #f7931e;
+  height: .6em;
+  min-width: 100%;
+}
+/* line 460, ../scss/_768up.scss */
+#footer #footerNetwork {
+  clear: both;
+  background: #d9d9d9;
+  color: #222222;
+}
+/* line 466, ../scss/_768up.scss */
+#footer #footerNetwork h4.first {
+  margin-left: 0;
+  padding-left: 0;
+}
+/* line 471, ../scss/_768up.scss */
+#footer #footerNetwork article {
+  float: left;
+}
+/* line 475, ../scss/_768up.scss */
+#footer #footerNetwork article img {
+  float: left;
+  margin-right: 8px;
+}
+/* line 482, ../scss/_768up.scss */
+#footer #footerNetwork article h5 {
+  font-weight: bold;
+  font-size: 12px;
+  margin: 0px 0px 4px 0px;
+}
+/* line 490, ../scss/_768up.scss */
+#footer #footerNetwork article ul {
+  margin-top: 0;
+}
+/* line 494, ../scss/_768up.scss */
+#footer #footerNetwork article ul li {
+  font-size: 10px;
+}
+/* line 496, ../scss/_768up.scss */
+#footer #footerNetwork article ul li a {
+  color: #262626;
+}
+/* line 513, ../scss/_768up.scss */
+#footer .attribution {
+  text-align: center;
+  clear: both;
+}
+
+/* line 522, ../scss/_768up.scss */
+.footer-links ul li {
+  /* 
+  be careful with the depth of your menus.
+  it's very rare to have multi-depth menus in
+  the footer.
+  */
+}
+
+/* end .footer-links */
+/******************************************************************
+Site Name: 
+Author: 
+
+Stylesheet: Desktop Stylsheet
+
+This is the desktop size. It's larger than an iPad so it will only
+be seen on the Desktop. 
+
+******************************************************************/
+/* 
+you can call the larger styles if you want, but there's really no need 
+*/
+/******************************************************************
+ADDITIONAL IE FIXES
+These fixes are now ONLY seen by IE, so you don't have to worry
+about using prefixes, although it's best practice. For more info
+on using Modernizr classes, check out this link:
+http://www.modernizr.com/docs/
+******************************************************************/
+/*
+For example, you can use something like:
+
+.no-textshadow .class { ... }
+
+You can also target specific versions by using the classes applied to
+the html element. These can sometimes change, so take a look inside the
+header.php file to see what they are:
+
+
+.lt-ie8 .class { ... }
+
+*/
